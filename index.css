@@ -1,0 +1,68 @@
+#root{
+    padding: 0;
+    max-width: 1024px;
+    width: 90%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+#root #logo{
+    padding: 2px;
+    width: 90px;
+    height: 80px;
+    border-radius: 65px;
+}
+
+.header{
+    
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    /* background-color: rgb(233, 218, 246); */
+}
+
+.header  ul {
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+}
+.header ul li{
+    padding: 10px;
+}
+
+.restaurant-List{
+    margin: 0 auto;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.card:hover{
+    transform: scale(0.95);
+}
+
+.card {
+    width: 214;
+    padding: 10px;
+    margin: 10px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    border: 0px solid white;
+    cursor: pointer;
+    box-shadow:0 0 20px #d7cece94;
+    transition: all 0.2s ease-in-out;
+    perspective: 12px;
+    border-radius: 10px;
+}
+.shimmer{
+    background: #dbc8c86b;
+    height: 300px;
+}
+.card > img {
+    width: 100%;
+    box-shadow:0 0 100px whitesmoke;
+    border-radius: 12px;
+}
+
+
