@@ -10,6 +10,14 @@ function filterData(restaurants,searchText){
         restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
 }
+
+function topRatedRestaurants(restaurants){
+    return restaurants.filter((restaurant)=>{
+        if(restaurant.info.avgRating>=4.5) return true;
+        return false;
+    });
+}
+
 const RestaurantList = ({restaurants})=>{
     
     return (
@@ -32,13 +40,28 @@ const Body = ()=>{
         const json = await data.json();
         // optional chaining
         // console.log(json)
-        // console.log(json?.data?.cards);
-        const info = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        if(info) setRestaurants(info);
+        console.log(json?.data?.cards);
+        
+        for(let ele of json?.data?.cards){
+            const info = ele?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            if(info){
+                setRestaurants(info);
+                break;
+            } 
+        }
+
     }
-    console.log(restaurants.length);
+    // console.log(restaurants.length);
     return (restaurants.length===0)?<Shimmer/>:(
     <div className="body">
+        <div className="top_rated_container"> 
+        <button onClick={()=>{
+                const data = topRatedRestaurants(restaurants);
+                setRestaurants(data);
+            }   
+        }> Top Rated Restaurants
+        </button>
+        </div>
         <div className="search_container">
             <input className="search-input" type="text" placeholder="Search" 
             value={searchText}
