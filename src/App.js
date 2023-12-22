@@ -30,11 +30,11 @@ Footer
 
 const AppLayout = ()=>{
     return (
-        <React.Fragment>
+        <div className="wrapper">
             <Header/>
             <Body/>
             <Footer/>
-        </React.Fragment>
+        </div>
     );
 };
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,4 +1,8 @@
-#root{
+*, #root, ::after , ::before{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
     padding: 0;
     max-width: 1024px;
     width: 90%;
@@ -43,18 +47,36 @@
 }
 
 .card {
-    width: 214;
+    width: 214px;
     padding: 10px;
     margin: 10px;
-    overflow: hidden;
-    overflow-wrap: break-word;
     border: 0px solid white;
     cursor: pointer;
+    line-height: 24px;
     box-shadow:0 0 20px #d7cece94;
     transition: all 0.2s ease-in-out;
-    perspective: 12px;
     border-radius: 10px;
+    letter-spacing: -0.3px;
 }
+
+.restaurant-name{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.cuisines{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    color:rgba(2, 6, 12, 0.6);
+}
+.rating-container{
+    display: flex;
+    gap:3px;
+    align-items: center;
+}
+
+
 .shimmer{
     background: #dbc8c86b;
     height: 300px;
@@ -63,6 +85,7 @@
     width: 100%;
     box-shadow:0 0 100px whitesmoke;
     border-radius: 12px;
+    margin-bottom: 10px;
 }
 
 
