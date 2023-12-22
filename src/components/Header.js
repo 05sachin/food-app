@@ -14,6 +14,7 @@ const Header = ()=>(
                 <li>Cart</li>
             </ul>
         </div>
+        <button className="login-btn">LogIn</button>
     </div>
 );
 

@@ -35,6 +35,12 @@
     padding: 10px;
 }
 
+.filter{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
 .restaurant-List{
     margin: 0 auto;
     display: flex;
@@ -72,10 +78,15 @@
 }
 .rating-container{
     display: flex;
-    gap:3px;
+    gap:4px;
     align-items: center;
 }
-
+.card  .dot{
+    height: 4px;
+    width: 4px;
+    background: #000;
+    border-radius: 4px;
+}
 
 .shimmer{
     background: #dbc8c86b;
