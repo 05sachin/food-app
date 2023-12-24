@@ -35,6 +35,16 @@
 }
 .header ul li{
     padding: 10px;
+    font-size:larger;
+    font-weight: bold;
+}
+.header ul li .link{
+    text-decoration: none;
+    color: #3d4152;
+    transition: all 2ms ease-in-out;
+}
+.header ul li .link:hover{
+    color: gold;
 }
 .nav-item{
     display: flex;
@@ -52,7 +62,7 @@
     color: #3d4152;
     transition: all 2ms ease-in;
 }
-.login-btn:hover ,.top-rated-btn:hover ,.search-btn:hover{
+.login-btn:hover ,.top-rated-btn:hover ,.search-btn:hover {
     color: gold;
 }
 .search-input{

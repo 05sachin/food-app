@@ -3,7 +3,10 @@ import ReactDOM from "react-dom/client"
 import Header ,{Title} from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-
+import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from "./components/Error";
 // default import
 // import Header from "./components/Header";
 // import Header from "./components/Header.js"; also write
@@ -32,11 +35,34 @@ const AppLayout = ()=>{
     return (
         <div className="wrapper">
             <Header/>
-            <Body/>
+            <Outlet/>
             <Footer/>
         </div>
     );
 };
+
+const createRouterConfig = createBrowserRouter([
+    {
+        path:"/",
+        element:<AppLayout/>,
+        children:[
+            {
+                path:"/",
+                element:<Body/>,
+            },
+            {
+                path:"/about",
+                element:<About/>,
+            },
+            {
+                path:"/contact",
+                element:<Contact/>,
+            },
+        ],
+        errorElement:<Error/>,
+    },
+
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppLayout/>);
+root.render(<RouterProvider router={createRouterConfig}/>);

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 export const Title = ()=>(
     <a href="/">
         <img id="logo" alt="logo" src="https://www.shutterstock.com/shutterstock/photos/1328492696/display_1500/stock-vector-food-finder-app-logo-design-vector-template-1328492696.jpg"></img>
@@ -11,10 +12,10 @@ const Header = ()=>{
         <Title/>
         <div className="nav-item">
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-                <li>Cart</li>
+                <li><Link className="link" to={"/"}>Home</Link></li>
+                <li><Link className="link" to={"/about"}>About</Link></li>
+                <li><Link className="link" to={"/contact"}>Contact</Link></li>
+                <li><Link className="link" to={"/cart"}>Cart</Link></li>
             </ul>
             <button className="login-btn"
             onClick={()=>{
