@@ -7,6 +7,7 @@ import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 // default import
 // import Header from "./components/Header";
 // import Header from "./components/Header.js"; also write
@@ -58,6 +59,11 @@ const createRouterConfig = createBrowserRouter([
                 path:"/contact",
                 element:<Contact/>,
             },
+            {
+                path:"/restaurants/:id",
+                element:<RestaurantMenu/>,
+            },
+
         ],
         errorElement:<Error/>,
     },

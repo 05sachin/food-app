@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { restaurantsList } from "../utils/config";
 import { RestaurantCard } from "./RestaurantCard";
+import { restaurantCardListUrl } from "../utils/config";
 import Shimmer from "./shimmer";
 // state
 // rect hooks
@@ -38,7 +39,7 @@ const Body = ()=>{
     },[]);
     {console.log("hello")}
     const fetchData = async ()=>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8466937&lng=80.94616599999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch(restaurantCardListUrl);
         const json = await data.json();
         // optional chaining
         // console.log(json)

@@ -134,4 +134,192 @@
     margin-bottom: 10px;
 }
 
+/* for restaurant menu */
+.restaurant-menu{
+    max-width: 1024px;
+    width: 95%;
+    margin: 20px auto;
+}
+.restaurant-menu .path-part{
+   font-weight: lighter;
+   font-size:smaller;
+   color: #93959f;
+}
+/* intro section */
+
+.restaurant-intro{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+.restaurant-intro .left-part{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.restaurant-intro .left-part p{
+   color: #7e808c;
+}
+
+.restaurant-intro .left-part .bike-icon-container{
+   display: flex;
+   align-items: center;
+   gap:5px;
+}
+
+.restaurant-intro .right-part {
+   background-color: white;
+   color: #7e808c;
+   border-radius: 5px;
+   padding: 5px;
+   border-color: #ecf0fe;
+   display: flex;
+   flex-direction: column;
+   gap:5px;
+}
+.restaurant-intro .right-part .rating-box{
+  display: flex;
+  align-items: center;
+  color: gold;
+  font-weight:bolder;
+}
+.restaurant-intro .right-part .line{
+  height: 2px;
+  width: 100%;
+  background: #929395;
+}
+
+.restaurant-menu hr{
+    border: 0.1px  solid #c8cbd2;
+    margin-bottom: 18px;
+}
+/* timecost wrapper */
+.timeCost-wrapper{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin-bottom: 18px;
+}
+.timeIcon ,.costIcon{
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   font-weight: bold;
+}
+
+/* offer part */
+.offer-list{
+    display:flex;
+    gap: 10px;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    white-space: nowrap;
+    margin-bottom: 30px;
+}
+.offer-list::-webkit-scrollbar {
+    display: none;
+}
+
+.offer-container{
+    cursor: pointer;
+    padding: 5px;
+    position: relative;
+    background: white;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-color: #edeef5;
+    border-radius: 5px;
+    box-shadow: 2px 3px 4px rgba(193, 137, 137, 0.1);
+}
+.offer-tag{
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    color: rgb(227, 89, 44);
+    font-size: x-small;
+    font-weight: 600;
+    padding-left: 4px;
+    border-left: 2px solid #e9e9eb;
+}
+.offerInfo-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.offerHeader-wrapper,.offerCode-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: #525358;
+    font-weight: 600;
+}
+.offerCode-wrapper{
+    color: #8b8d96;
+    font-size: smaller;
+}
+
+/* restaurant Menu */
+.menu-lists{ 
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.menu-list-wrapper {
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(2, 6, 12, 0.1);
+}
+.menu-list-wrapper .menu-title {
+   font-size: x-large;
+   margin-bottom: 10px;
+}
+
+.menu-list{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.menu-list .menu-card{
+    padding: 5px;
+    padding-bottom: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cbccd3;
+    box-shadow: 0 2px 4px rgba(70, 72, 75, 0.1);
+}
+.menu-list .menu-card .left-part{
+    color: #3e4152;
+    font-size: medium;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.menu-list .menu-card .right-part{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right-part button{
+    border-color: #e4e4eb;
+    cursor: pointer;
+    transition: all 2ms ease-in-out;
+}
+.add-btn{
+    position: absolute;
+    bottom: -10px;
+    padding: 8px 20px ;
+    font-weight: bold;
+    color: #60b246;
+}
+
 
