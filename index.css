@@ -134,10 +134,10 @@
     margin-bottom: 10px;
 }
 
-/* for restaurant menu */
+/* for restaurant menu  wrapper*/
 .restaurant-menu{
-    max-width: 1024px;
-    width: 95%;
+    max-width: 768px;
+    width: 90%;
     margin: 20px auto;
 }
 .restaurant-menu .path-part{
@@ -162,6 +162,7 @@
 }
 .restaurant-intro .left-part p{
    color: #7e808c;
+  
 }
 
 .restaurant-intro .left-part .bike-icon-container{
@@ -276,6 +277,14 @@
     padding: 10px;
     box-shadow: 0 2px 4px rgba(2, 6, 12, 0.1);
 }
+.menu-list-wrapper .menuTitle-wrapper{
+    display: flex;
+    background: white;
+    width: 100%;
+    cursor: pointer;
+    border: 0;
+    justify-content: space-between;
+}
 .menu-list-wrapper .menu-title {
    font-size: x-large;
    margin-bottom: 10px;
@@ -303,23 +312,58 @@
     flex-direction: column;
     gap: 10px;
 }
+.menu-list .menu-card .left-part p{
+    color: #3e4152;
+    display: flex;
+    align-items: center; 
+}
 .menu-list .menu-card .right-part{
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 118px;
+    height: 96px;
 }
 .right-part button{
     border-color: #e4e4eb;
     cursor: pointer;
     transition: all 2ms ease-in-out;
+    border-radius: 5px;
 }
 .add-btn{
     position: absolute;
-    bottom: -10px;
-    padding: 8px 20px ;
+    bottom: -15px;
+    padding: 8px 30px ;
     font-weight: bold;
     color: #60b246;
+    
 }
 
-
+/*Restaurant Menu footer section */
+.restaurantMenuFooter{
+    background: #f1f1f6;
+}
+.restaurantLicence-wrapper{
+    padding: 12px;
+    display: flex;
+    align-items:center;
+    gap: 15px;
+    font-weight: 500;
+    color: #93959f;
+    border-bottom: 1px solid #84858a;
+    margin-bottom: 16px;
+}
+.restaurantAddress-wrapper{
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 120px;
+    color: #93959f;
+}
+.mapPin-icon{
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    gap: 3px;
+}

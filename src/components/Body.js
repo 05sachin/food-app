@@ -37,23 +37,27 @@ const Body = ()=>{
     useEffect(()=>{
         fetchData();
     },[]);
-    {console.log("hello")}
+    // {console.log("hello")}
     const fetchData = async ()=>{
-        const data = await fetch(restaurantCardListUrl);
-        const json = await data.json();
-        // optional chaining
-        // console.log(json)
-        // console.log(json?.data?.cards);
-        
-        for(let ele of json?.data?.cards){
-            const info = ele?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            if(info){
-                setRestaurants(info);
-                setFilterRestaurants(info);
-                break;
-            } 
+        try{
+            const data = await fetch(restaurantCardListUrl);
+            const json = await data.json();
+            // optional chaining
+            // console.log(json)
+            // console.log(json?.data?.cards);
+            
+            for(let ele of json?.data?.cards){
+                const info = ele?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+                if(info){
+                    setRestaurants(info);
+                    setFilterRestaurants(info);
+                    break;
+                } 
+            }
         }
-
+        catch(e){
+            return (<h1>Something went wrong!!</h1>)
+        }
     }
     // console.log(restaurants.length);
     return (filterRestaurants.length===0)?<Shimmer/>:(
