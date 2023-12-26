@@ -84,7 +84,10 @@ const RestaurantMenu = ()=>{
             {/* menu section */}
             <div className="menu-lists">
                 {menuArr.map((menu,i)=>{
-                    return <MenuList {...menu.card.card} key={i}/>
+                    if(!(menu?.card?.card?.categories)) return <MenuList {...menu.card.card} key={i}/>;
+                    else if(menu?.card?.card?.categories) return menu?.card?.card?.categories.map((info ,j)=>{
+                        return <MenuList {...info} key={i+","+j}/>
+                    });
                 })}
             </div>
             {/*Restaurant footer section */}

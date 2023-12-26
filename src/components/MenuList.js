@@ -22,8 +22,12 @@ const MenuCard = ({name,price,imageId,isVeg})=>{
     )
 }
 const MenuList = ({title,itemCards})=>{
-    if(!title || !itemCards) return <div></div>;
-
+    
+    if(!title || !itemCards) {
+        console.log("hello");
+        return <span></span>;
+    }
+    
     const [toggle,setToggle] = useState(true);
     return (
         <div className="menu-list-wrapper"  >
