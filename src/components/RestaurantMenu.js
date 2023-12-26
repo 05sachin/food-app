@@ -16,13 +16,21 @@ const RestaurantMenu = ()=>{
         const data =await fetch(restaurantMenuUrl+id+"&catalog_qa=undefined&submitAction=ENTER");
         const json = await data.json();
         setRestaurant(json?.data?.cards);
-        // console.log(json?.data);
+        // console.log(json?.data?.cards);
     };
     
     if(restaurant==null) return <Shimmer/>;
-    const introInfo = restaurant[0]?.card?.card?.info;
-    const offerArr = restaurant[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
-    const menuArr = restaurant[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    let introInfo = restaurant[0]?.card?.card?.info;
+    let offerArr = restaurant[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
+    let menuArr = restaurant[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    for(let i=0;i<restaurant.length;i++){
+        if(!introInfo){
+            introInfo = restaurant[i]?.card?.card?.info;
+        }else if(!offerArr) offerArr = restaurant[i]?.card?.card?.gridElements?.infoWithStyle?.offers;
+        else if(!menuArr){
+            menuArr = restaurant[i]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+        }
+    }
     // console.log(introInfo);
     // console.log(offerArr);
     // console.log(menuArr);

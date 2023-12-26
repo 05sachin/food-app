@@ -76,6 +76,7 @@
     align-items: center;
     justify-content: space-between;
 }
+/* restaurants */
 .restaurant-List{
     margin: 0 auto;
     display: flex;
@@ -88,6 +89,7 @@
 }
 
 .card {
+    text-decoration: none;
     width: 214px;
     padding: 10px;
     margin: 10px;
@@ -99,7 +101,9 @@
     border-radius: 10px;
     letter-spacing: -0.3px;
 }
-
+.card h3{
+    color: black;
+}
 .restaurant-name{
     overflow:hidden;
     white-space:nowrap;
@@ -296,6 +300,7 @@
     gap: 30px;
 }
 .menu-list .menu-card{
+    position: relative;
     padding: 5px;
     padding-bottom: 30px;
     display: flex;
@@ -311,27 +316,33 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+  
 }
 .menu-list .menu-card .left-part p{
     color: #3e4152;
     display: flex;
     align-items: center; 
 }
+
 .menu-list .menu-card .right-part{
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+}
+.menu-card .right-part .no-img{
     width: 118px;
     height: 96px;
+    visibility: hidden;
 }
-.right-part button{
+.menu-card .right-part button{
     border-color: #e4e4eb;
     cursor: pointer;
     transition: all 2ms ease-in-out;
-    border-radius: 5px;
+    border-radius: 1px;
 }
-.add-btn{
+.right-part .add-btn{
     position: absolute;
     bottom: -15px;
     padding: 8px 30px ;
