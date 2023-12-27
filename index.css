@@ -185,7 +185,7 @@
 /* for restaurant menu  wrapper*/
 .restaurant-menu{
     max-width: 768px;
-    width: 90%;
+    width: 95%;
     margin: 20px auto;
 }
 .restaurant-menu .path-part{
@@ -351,6 +351,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    gap: 8px;
     align-items: center;
     border-bottom: 1px solid #cbccd3;
     box-shadow: 0 2px 4px rgba(70, 72, 75, 0.1);
@@ -368,7 +369,12 @@
     display: flex;
     align-items: center; 
 }
-
+.menu-list .menu-card .left-part .description{
+    font-size: smaller;
+    font-weight:100;
+    color: #b0b1b9;
+    white-space:break-spaces;
+}
 .menu-list .menu-card .right-part{
     position: relative;
     display: flex;

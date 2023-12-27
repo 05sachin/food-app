@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { menuImg } from "../utils/config";
 import { Icon } from '@iconify/react';
-const MenuCard = ({name,price,imageId,isVeg,defaultPrice})=>{
+const MenuCard = ({name,price,imageId,isVeg,defaultPrice,description})=>{
     
     return (
         <div className="menu-card">
@@ -9,6 +9,7 @@ const MenuCard = ({name,price,imageId,isVeg,defaultPrice})=>{
                 { isVeg ?(<Icon icon="mdi:lacto-vegetarian" />):(<img src="https://i.pinimg.com/474x/14/0b/0e/140b0e8a911d1734c496155aa97a56a8.jpg" width={"20px"} height={"20px"}></img>)}
                 <h4>{name}</h4>
                 <p > <Icon icon="mdi:rupee" /> <span>{(price)?price/100:defaultPrice/100}</span></p>
+                <p className="description">{description}</p>
             </div>
             <div className="right-part">
                {!imageId?(<img className="no-img"></img>):(
@@ -38,7 +39,7 @@ const MenuList = ({title,itemCards})=>{
                 <h3 className="menu-title">{title + '('+ itemCards.length + ')'}</h3>
                 <Icon  icon={`simple-line-icons:arrow-${toggle ? 'up' : 'down'}`} />
             </button>
-            <div className="menu-list" style={{display: toggle ? 'block' : 'none' }} >
+            <div className="menu-list" style={{display: toggle ? 'flex' : 'none' }} >
                 {itemCards.map((item)=>{
                     return   <MenuCard {...item?.card?.info} key={item?.card?.info?.id} />
                 })}
