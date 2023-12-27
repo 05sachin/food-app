@@ -76,6 +76,50 @@
     align-items: center;
     justify-content: space-between;
 }
+
+/* About Page */
+.about-wrapper{
+    width: 98%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding:10px 5px;
+    text-align: center;
+    background:rgb(243, 224, 224);
+    box-shadow: 0 0 20px rgba(1, 12, 28, 0.2);
+  
+    border-radius: 5px;
+}
+.about-wrapper .about{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.about-img{
+    width: 220px;
+    height: 220px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 15px;
+}
+.about .about-info{
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    gap: 20px;
+    justify-content: center;
+    color: #3c3c49;
+}
+.socialMediaIcon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+   
+}
+.socialMediaIcon a{
+    color: rgb(66, 65, 65);
+    
+}
 /* restaurants */
 .restaurant-List{
     margin: 0 auto;
@@ -379,3 +423,5 @@
     align-items: center;
     gap: 3px;
 }
+
+
