@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { restaurantsList } from "../utils/config";
-import { RestaurantCard } from "./RestaurantCard";
+import  RestaurantCard  from "./RestaurantCard";
 import { restaurantCardListUrl } from "../utils/config";
 import Shimmer from "./shimmer";
 // state
@@ -19,21 +19,12 @@ function topRatedRestaurants(restaurants){
     });
 }
 
-const RestaurantList = ({restaurants})=>{
-    
-    return (
-        <div className="restaurant-List">
-            {restaurants.map((restaurant) => { 
-                return <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
-            })}
-        </div>
-    );
-};
+
 const Body = ()=>{
     const [searchText ,setSearchText] = useState("");
     const [restaurants,setRestaurants] = useState([]);
     const [filterRestaurants,setFilterRestaurants] = useState([]);
-   
+    
     useEffect(()=>{
         fetchData();
     },[]);
@@ -45,7 +36,6 @@ const Body = ()=>{
             // optional chaining
             // console.log(json)
             // console.log(json?.data?.cards);
-            
             for(let ele of json?.data?.cards){
                 const info = ele?.card?.card?.gridElements?.infoWithStyle?.restaurants;
                 if(info){
@@ -91,7 +81,11 @@ const Body = ()=>{
             </div>
         </div>
         
-        <RestaurantList restaurants={filterRestaurants} />
+        <div className="restaurant-List">
+            {filterRestaurants.map((restaurant) => { 
+                return <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
+            })}
+        </div>
     </div>);
 };
 

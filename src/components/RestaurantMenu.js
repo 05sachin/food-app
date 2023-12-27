@@ -1,39 +1,30 @@
-import { useState,useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { IMG_CDN_URL, restaurantMenuUrl } from "../utils/config";
-import Shimmer from "./shimmer";
-import MenuOfferCard from "./MenuOfferCard";
-import MenuList from "./MenuList";
 import { Icon } from '@iconify/react';
+import { useParams } from "react-router-dom";
+import { IMG_CDN_URL } from "../utils/config";
+import Shimmer from "./shimmer";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantMenuOfferCard from "./RestaurantMenuOfferCard";
+import RestaurantMenuList from "./RestaurantMenuList";
+
+
 const RestaurantMenu = ()=>{
-    const [restaurant,setRestaurant] = useState(null);
     const {id} = useParams();
-    useEffect(()=>{
-        fetchData();
-    },[]);
+
+    const restInfo = useRestaurantMenu(id);
     
-    const fetchData = async ()=>{
-        const data =await fetch(restaurantMenuUrl+id+"&catalog_qa=undefined&submitAction=ENTER");
-        const json = await data.json();
-        setRestaurant(json?.data?.cards);
-        // console.log(json?.data?.cards);
-    };
-    
-    if(restaurant==null) return <Shimmer/>;
-    let introInfo = restaurant[0]?.card?.card?.info;
-    let offerArr = restaurant[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
-    let menuArr = restaurant[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    for(let i=0;i<restaurant.length;i++){
-        if(!introInfo){
-            introInfo = restaurant[i]?.card?.card?.info;
-        }else if(!offerArr) offerArr = restaurant[i]?.card?.card?.gridElements?.infoWithStyle?.offers;
-        else if(!menuArr){
-            menuArr = restaurant[i]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-        }
-    }
-    // console.log(introInfo);
-    // console.log(offerArr);
-    // console.log(menuArr);
+    if(restInfo==null) return <Shimmer/>;
+
+    let introInfo = restInfo[0]?.card?.card?.info;
+    let offerArr = restInfo[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
+    let menuArr = restInfo[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    // for(let i=0;i<restInfo.length;i++){
+    //     if(!introInfo){
+    //         introInfo = restaurant[i]?.card?.card?.info;
+    //     }else if(!offerArr) offerArr = restaurant[i]?.card?.card?.gridElements?.infoWithStyle?.offers;
+    //     else if(!menuArr){
+    //         menuArr = restaurant[i]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    //     }
+    // }
     const licenseInfo = menuArr[menuArr.length-2]?.card?.card;
     const addressInfo = menuArr[menuArr.length-1]?.card?.card;
 
@@ -77,16 +68,16 @@ const RestaurantMenu = ()=>{
             {/* offers list */}
             <div className="offer-list">
                 {offerArr.map((offer)=>{
-                    return <MenuOfferCard {...offer.info} key={offer.info.offerIds} />
+                    return <RestaurantMenuOfferCard {...offer.info} key={offer.info.offerIds} />
                 })}
             </div>
             <hr></hr>
             {/* menu section */}
             <div className="menu-lists">
                 {menuArr.map((menu,i)=>{
-                    if(!(menu?.card?.card?.categories)) return <MenuList {...menu.card.card} key={i}/>;
+                    if(!(menu?.card?.card?.categories)) return <RestaurantMenuList {...menu.card.card} key={i}/>;
                     else if(menu?.card?.card?.categories) return menu?.card?.card?.categories.map((info ,j)=>{
-                        return <MenuList {...info} key={i+","+j}/>
+                        return <RestaurantMenuList {...info} key={i+","+j}/>
                     });
                 })}
             </div>

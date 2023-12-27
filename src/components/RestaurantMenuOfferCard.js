@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-const MenuOfferCard = ({header,offerTag,couponCode,description})=>{
+const RestaurantMenuOfferCard = ({header,offerTag,couponCode,description})=>{
     return (
         <button className="offer-container">
             <p className="offer-tag">{offerTag || "DEFAULT"}</p>
@@ -17,4 +17,4 @@ const MenuOfferCard = ({header,offerTag,couponCode,description})=>{
     )
 }
 
-export default MenuOfferCard;
+export default RestaurantMenuOfferCard;
