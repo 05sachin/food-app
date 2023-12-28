@@ -3,6 +3,8 @@ import { restaurantsList } from "../utils/config";
 import  RestaurantCard  from "./RestaurantCard";
 import { restaurantCardListUrl } from "../utils/config";
 import Shimmer from "./shimmer";
+import NoInternet from "./NoInternet";
+import useOnlineStatus from "../utils/useOnlineStatus";
 // state
 // rect hooks
 // usecase
@@ -24,7 +26,7 @@ const Body = ()=>{
     const [searchText ,setSearchText] = useState("");
     const [restaurants,setRestaurants] = useState([]);
     const [filterRestaurants,setFilterRestaurants] = useState([]);
-    
+    const onlineStatus = useOnlineStatus();
     useEffect(()=>{
         fetchData();
     },[]);
@@ -49,6 +51,8 @@ const Body = ()=>{
             return (<h1>Something went wrong!!</h1>)
         }
     }
+
+    if(!onlineStatus)  return <NoInternet/>;
     // console.log(restaurants.length);
     return (filterRestaurants.length===0)?<Shimmer/>:(
         
