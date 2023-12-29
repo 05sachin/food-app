@@ -4,30 +4,40 @@ import { IMG_CDN_URL } from "../utils/config";
 import Shimmer from "./shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantMenuOfferCard from "./RestaurantMenuOfferCard";
-import RestaurantMenuList from "./RestaurantMenuList";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from 'react';
 
 
 const RestaurantMenu = ()=>{
     const {id} = useParams();
+    const [showIndex,setShowIndex] = useState(null);
 
     const restInfo = useRestaurantMenu(id);
     
     if(restInfo==null) return <Shimmer/>;
 
-    let introInfo = restInfo[0]?.card?.card?.info;
-    let offerArr = restInfo[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
-    let menuArr = restInfo[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    // for(let i=0;i<restInfo.length;i++){
-    //     if(!introInfo){
-    //         introInfo = restaurant[i]?.card?.card?.info;
-    //     }else if(!offerArr) offerArr = restaurant[i]?.card?.card?.gridElements?.infoWithStyle?.offers;
-    //     else if(!menuArr){
-    //         menuArr = restaurant[i]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    //     }
-    // }
-    const licenseInfo = menuArr[menuArr.length-2]?.card?.card;
-    const addressInfo = menuArr[menuArr.length-1]?.card?.card;
+    const introInfo = restInfo[0]?.card?.card?.info;
+    const offerArr = restInfo[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
+    const menuArr = restInfo[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    const categories = [];
+    const license = [];
+    const address = [];
 
+    menuArr.map((cat)=>{
+        const card = cat?.card?.card;
+        if(card?.["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"){
+            categories.push(...card?.categories);
+        }else if(card?.["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"){
+            categories.push(card);
+        }else if(card?.["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.RestaurantLicenseInfo"){
+            license.push(cat?.card?.card);
+        }else if(card?.["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.RestaurantAddress"){
+            address.push(cat?.card?.card);
+        }
+    });
+    
+    const licenseInfo = license[0];
+    const addressInfo = address[0];
     return (
         <div className="restaurant-menu">
             <p className="path-part">Home /  {introInfo.city } / {introInfo.name}</p>
@@ -74,12 +84,13 @@ const RestaurantMenu = ()=>{
             <hr></hr>
             {/* menu section */}
             <div className="menu-lists">
-                {menuArr.map((menu,i)=>{
-                    if(!(menu?.card?.card?.categories)) return <RestaurantMenuList {...menu.card.card} key={i}/>;
-                    else if(menu?.card?.card?.categories) return menu?.card?.card?.categories.map((info ,j)=>{
-                        return <RestaurantMenuList {...info} key={i+","+j}/>
-                    });
+                {categories.map((category,i)=>{
+                    return <RestaurantCategory {...category} toggle={showIndex===i} onShow = {(toggle)=>{
+                        if(toggle) setShowIndex(null);
+                        else setShowIndex(i);
+                    }} key={i}/>;
                 })}
+                
             </div>
             {/*Restaurant footer section */}
 

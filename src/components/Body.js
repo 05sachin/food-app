@@ -51,7 +51,7 @@ const Body = ()=>{
             return (<h1>Something went wrong!!</h1>)
         }
     }
-
+    // console.log(filterRestaurants)
     if(!onlineStatus)  return <NoInternet/>;
     // console.log(restaurants.length);
     return (filterRestaurants.length===0)?<Shimmer/>:(
@@ -86,7 +86,7 @@ const Body = ()=>{
         </div>
         
         <div className="restaurant-List">
-            {filterRestaurants.map((restaurant) => { 
+            {filterRestaurants.map((restaurant) => {
                 return <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
             })}
         </div>

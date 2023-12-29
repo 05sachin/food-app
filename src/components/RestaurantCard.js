@@ -1,7 +1,7 @@
 import { IMG_CDN_URL } from "../utils/config";
 import { Link } from "react-router-dom";
 
-const RestaurantCard = ({cloudinaryImageId,name,cuisines,avgRating,locality,sla,id})=>{
+const RestaurantCard = ({cloudinaryImageId,name,cuisines,avgRating,areaName,sla,id})=>{
     return(
         <Link to={"/restaurants/"+id} className="card">
             <img src={IMG_CDN_URL+cloudinaryImageId}></img>
@@ -20,7 +20,7 @@ const RestaurantCard = ({cloudinaryImageId,name,cuisines,avgRating,locality,sla,
                 <h3>{sla.slaString}</h3>
             </div>
             <h4 className="cuisines">{cuisines.join(" , ")}</h4>
-            <h4 className="cuisines">{locality}</h4>
+            <h4 className="cuisines">{areaName}</h4>
         </Link>
     );
 };

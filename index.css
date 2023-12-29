@@ -348,7 +348,7 @@
     border: 0;
     justify-content: space-between;
 }
-.menu-list-wrapper .menu-title {
+.menu-title {
    font-size: x-large;
    margin-bottom: 10px;
 }
