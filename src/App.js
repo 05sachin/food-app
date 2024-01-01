@@ -8,6 +8,9 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Cart from "./components/Cart";
+import appStore from "./utils/appStore";
+import { Provider } from "react-redux";
 // default import
 // import Header from "./components/Header";
 // import Header from "./components/Header.js"; also write
@@ -34,11 +37,13 @@ Footer
 
 const AppLayout = ()=>{
     return (
-        <div className="wrapper">
-            <Header/>
-            <Outlet/>
-            <Footer/>
-        </div>
+        <Provider store={appStore}>
+            <div className="wrapper">
+                <Header/>
+                <Outlet/>
+                <Footer/>
+            </div>
+        </Provider>
     );
 };
 
@@ -62,6 +67,10 @@ const createRouterConfig = createBrowserRouter([
             {
                 path:"/restaurants/:id",
                 element:<RestaurantMenu/>,
+            },
+            {
+                path:"/cart",
+                element:<Cart/>,
             },
 
         ],

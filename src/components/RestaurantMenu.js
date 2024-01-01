@@ -96,8 +96,8 @@ const RestaurantMenu = ()=>{
 
             <div className="restaurantMenuFooter">
                 <div className="restaurantLicence-wrapper">
-                    <img src={IMG_CDN_URL+licenseInfo.imageId} width={"60px"} height={"30px"}></img>
-                    <p>{licenseInfo.text}</p>
+                    <img src={licenseInfo && IMG_CDN_URL+licenseInfo.imageId} width={"60px"} height={"30px"}></img>
+                    <p>{licenseInfo && licenseInfo.text}</p>
                 </div>
                 <div className="restaurantAddress-wrapper">
                     <h4>{addressInfo.name}</h4>

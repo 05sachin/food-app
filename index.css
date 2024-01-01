@@ -9,6 +9,7 @@
     margin: 0 auto;
     overflow-x: hidden;
     box-sizing: border-box;
+    font-family: ProximaNova,arial,Helvetica Neue,sans-serif;;
 }
 
 #root #logo{
@@ -53,6 +54,14 @@
 .header ul li .link:hover{
     color: gold;
 }
+.header ul li .link .cartBox{
+    padding: 5px 8px;
+    margin-right: 3px;
+    background:rgb(27, 27, 27);
+    color: white;
+    border-radius: 5px;
+}
+
 .noInternet{
     margin: 60px auto;
     background:rgb(189, 150, 150);
@@ -73,7 +82,7 @@
     gap:10px;
     
 }
-.login-btn ,.top-rated-btn ,.search-btn{
+.login-btn ,.top-rated-btn ,.search-btn,.cartBtn{
     padding: 10px 15px;
     cursor: pointer;
     font-size: medium;
@@ -83,8 +92,56 @@
     color: #3d4152;
     transition: all 2ms ease-in;
 }
-.login-btn:hover ,.top-rated-btn:hover ,.search-btn:hover {
+.login-btn:hover ,.top-rated-btn:hover ,.search-btn:hover ,.cartBtn:hover{
     color: gold;
+}
+
+/* cart */
+.cartWrapper{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+.cart{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+.cartBtns{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.cart-card{
+    position: relative;
+}
+.cart-card .itemCount{
+    position:absolute;
+    padding: 5px 8px;
+    border-radius: 10px;
+    top: 0;
+    right: 40%;
+    background: rgb(194, 176, 176);
+    color: black;
+}
+.remove-btn{
+    position:absolute;
+    cursor: pointer;
+    top: 0;
+    right: 1px;
+    z-index: 1;
+    background: #000;
+    border-radius: 20px;
+}
+.delete-btn{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 96px;
+    z-index: 1;
 }
 .search-input{
     padding: 10px 15px;
@@ -370,7 +427,6 @@
     padding: 5px;
     padding-bottom: 30px;
     display: flex;
-    width: 100%;
     justify-content: space-between;
     gap: 8px;
     align-items: center;
@@ -421,6 +477,9 @@
     font-weight: bold;
     color: #60b246;
     
+}
+.right-part .add-btn:hover{
+    color: #67f23d;
 }
 
 /*Restaurant Menu footer section */
