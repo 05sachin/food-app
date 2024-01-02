@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
-import Header ,{Title} from "./components/Header";
+import Header  from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
@@ -12,6 +12,8 @@ import Cart from "./components/Cart";
 import appStore from "./utils/appStore";
 import { Provider } from "react-redux";
 import Login from "./components/Login";
+import { Icon } from "@iconify/react";
+
 // default import
 // import Header from "./components/Header";
 // import Header from "./components/Header.js"; also write
@@ -43,6 +45,9 @@ const AppLayout = ()=>{
                 <Header/>
                 <Outlet/>
                 <Footer/>
+                <Icon className="gototop"  onClick={() => {
+                    window.scrollTo({top: 0, right: 0, behavior: 'smooth'});
+                }}  icon="ei:arrow-up" color="blue" width={"50px"} />
             </div>
         </Provider>
     );

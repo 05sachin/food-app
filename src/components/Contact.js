@@ -5,10 +5,10 @@ const Contact = ()=>{
     const handle = ()=>{
         setToggle(true);
     }
-    return toggle?(<div className="contact">
-        <p>Thanks for your valuable feedback!</p>
-    </div>):
-    (
+    return <div className="contactWrapper">
+            {toggle?(<div className="contact">
+            <p>Thanks for your valuable feedback!</p>
+        </div>):
         <div className="contact">
             <h2>Contact Us</h2>
             <form className="form" onSubmit={handle}>
@@ -26,8 +26,9 @@ const Contact = ()=>{
                 
                 <button className="submitBtn" type="submit">Send Message</button>
             </form>
-        </div>
-    );
+        </div>}
+        
+    </div>
 }
 
 export default Contact;
