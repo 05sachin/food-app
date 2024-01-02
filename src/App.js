@@ -11,6 +11,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Cart from "./components/Cart";
 import appStore from "./utils/appStore";
 import { Provider } from "react-redux";
+import Login from "./components/Login";
 // default import
 // import Header from "./components/Header";
 // import Header from "./components/Header.js"; also write
@@ -72,7 +73,10 @@ const createRouterConfig = createBrowserRouter([
                 path:"/cart",
                 element:<Cart/>,
             },
-
+            {
+                path:"/login",
+                element:<Login/>,
+            },
         ],
         errorElement:<Error/>,
     },

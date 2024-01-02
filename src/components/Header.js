@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import {  useSelector } from "react-redux";
@@ -8,7 +7,6 @@ export const Title = ()=>(
     </a>
 );
 const Header = ()=>{
-    const [loginBtn,setLoginBtn] = useState("LogIn");
     const onlineStatus = useOnlineStatus();
     const cartCount = useSelector((store)=>store.cart.count);
     return (
@@ -23,14 +21,7 @@ const Header = ()=>{
                     <li><Link className="link" to={"/contact"}>Contact</Link></li>
                     <li><Link className="link" to={"/cart"}><span className="cartBox">{cartCount}</span>Cart</Link></li>
                 </ul>
-                <button className="login-btn"
-                onClick={()=>{
-                    if(loginBtn==="LogIn"){
-                        setLoginBtn("LogOut");
-                    }else{
-                        setLoginBtn("LogIn");
-                    }
-                }}>{loginBtn}</button>
+                <Link to={"/login"} className="login-btn" >Login</Link>
             </div>
         </div>
     </div>);
