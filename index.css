@@ -13,6 +13,7 @@
     max-width: 1024px;
     width: 90%;
     margin: 0 auto;
+    min-height: 500px;
 }
 #root #logo{
     padding: 2px;
@@ -26,11 +27,12 @@
 .header{
     position:fixed;
     top:0;
-    left: 2%;
-    right: 2%;
+    left: 1%;
+    right: 1%;
     padding-right: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     text-align: center;
     background-color: white;
     z-index: 10;
@@ -97,8 +99,10 @@
 
 /* cart */
 .cartWrapper{
+    width: 90%;
+    max-width: 768px;
     min-height: 450px;
-    margin-top: 20px;
+    margin:20px auto;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -138,7 +142,7 @@
 .remove-btn{
     position:absolute;
     cursor: pointer;
-    top: 0;
+    top: 3%;
     right: 1px;
     z-index: 1;
     background: #000;
@@ -147,8 +151,8 @@
 .delete-btn{
     position: absolute;
     cursor: pointer;
-    top: 0;
-    right: 96px;
+    top: 3%;
+    right: 100px;
     z-index: 1;
 }
 .search-input{
@@ -165,7 +169,7 @@
 
 /* About Page */
 .about-wrapper{
-    width: 98%;
+    width: 90%;
     max-width: 500px;
     margin: 100px auto;
     padding:10px 5px;
@@ -701,4 +705,111 @@
     bottom: 50px;
     cursor: pointer;
     z-index: 1;
+}
+
+.hamIcon{
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 33%;
+    cursor: pointer;
+    padding: 0;
+}
+.cartLinksm{
+    display: none;
+}
+
+/* media queries */
+@media screen and (max-width: 768px){
+    .header{
+        left: 0;
+        right: 0;
+    }
+    .hamIcon{
+        display: block;
+        z-index: 10;
+        transition: all 0.2ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    
+    .nav-item{
+        width: 90%;
+        background:white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        padding: 50px 0;
+        gap: 20px;
+        transition: all 0.2ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    .nav-item-close{
+        right: -100%;
+    }
+    .nav-item ul{
+        flex-direction: column;
+    }
+    .nav-item .login-btn{
+        background: rgb(197, 188, 188);
+        padding: 10px 20px;
+    }
+    .cartLink{
+        display: none;
+    }
+    .cartLinksm{
+        display: block;
+        margin-right: 30px;
+    }
+    .filter{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media screen and (max-width: 546px){
+
+    .about{
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 20px;
+    }
+    .remove-btn,.delete-btn{
+        top:10%
+    }
+    .menu-title{
+        font-size:large;
+    }
+    .restaurant-intro .left-part p{
+        font-size: medium;
+    }
+}
+@media screen and (max-width: 374px){
+    .top-rated-btn{
+        padding: 4px 6px;
+    }
+    .search-input{
+        padding: 4px 10px;
+        width:45%;
+    }
+    .search-btn{
+        padding: 4px 5px;
+    }
+
+    .contact form input,textarea ,.submitBtn{
+        padding: 8px 6px;
+        font-size: small;
+    }
+    .contact form input label{
+        font-size: small;
+    }
+    .remove-btn,.delete-btn{
+        top:15%;
+    }
+    .delete-btn{
+        right: 35%;
+    }
+    .restaurant-intro .left-part h2{
+        font-size: medium;
+    }
+    .restaurant-intro .left-part p{
+        font-size: small;
+    }
 }
