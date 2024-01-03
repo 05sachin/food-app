@@ -19,8 +19,8 @@ const Header = ()=>{
                     <li><Link className="link" to={"/"}>Home</Link></li>
                     <li><Link className="link" to={"/about"}>About</Link></li>
                     <li><Link className="link" to={"/contact"}>Contact</Link></li>
-                    <li><Link className="link" to={"/cart"}><span className="cartBox">{cartCount}</span>Cart</Link></li>
                 </ul>
+                <Link className="cartLink" to={"/cart"}><span className="cartBox">{cartCount}</span>Cart</Link>
                 <Link to={"/login"} className="login-btn" >Login</Link>
             </div>
         </div>
